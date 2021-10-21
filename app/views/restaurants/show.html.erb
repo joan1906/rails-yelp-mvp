@@ -4,6 +4,13 @@
 <p><%= @restaurant.phone_number %></p>
 <p><%= @restaurant.category %></p>
 
+<ul class="list-group">
+    <% @restaurant.reviews.each do |review| %>
+      <li class="list-group-item"><%= review.content %></li>
+      <li class="list-group-item"><%= review.rating %></li>
+    <% end %>
+</ul>
+
 <p class="btn btn-success "><%= link_to 'Edit', new_restaurant_path(@restaurant) %> |</p>
 <p class="btn btn-dark"><%= link_to 'Back', restaurants_path %> |</p>
 <p class="btn btn-info"><%= link_to 'Leave a review', new_restaurant_review_path(@restaurant) %> |</p>
